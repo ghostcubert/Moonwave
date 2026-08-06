@@ -62,3 +62,16 @@ Optional (disables minimal system requirements)
 .method public static native getGraphqlUrl()Ljava/lang/String;
 .end method
 ```
+
+### AuthFragment.smali
+Find:
+invoke-static {v1, v0}, Lcom/epicgames/kairos/utils/DebouncedLimiter;->loginUrl(Lcom/epicgames/kairos/utils/Environment;Z)Ljava/lang/String;
+
+and replace with:
+invoke-static {}, Lcom/razer/moonwave/Partyhub;->getLoginUrl()Ljava/lang/String;
+
+Find:
+invoke-static {v1, v0}, Lcom/epicgames/kairos/utils/DebouncedLimiter;->registerUrl(Lcom/epicgames/kairos/utils/Environment;Z)Ljava/lang/String;
+
+and replace with:
+invoke-static {}, Lcom/razer/moonwave/Partyhub;->getRegisterUrl()Ljava/lang/String;
