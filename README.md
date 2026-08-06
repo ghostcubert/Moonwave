@@ -7,7 +7,6 @@
 - **Rust**: to use this.
 - **NDK**: to build.
 - **libc++_shared.so** (for some builds): for this to work.
-- **IDA Knowledge**: for 18.40+ and i won't help you get the offsets figure it out
 
 ## How to build
 
