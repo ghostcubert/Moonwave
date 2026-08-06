@@ -75,3 +75,10 @@ invoke-static {v1, v0}, Lcom/epicgames/kairos/utils/DebouncedLimiter;->registerU
 
 and replace with:
 invoke-static {}, Lcom/razer/moonwave/Partyhub;->getRegisterUrl()Ljava/lang/String;
+
+### KernelImpl.smali
+Find:
+invoke-static {v0}, Lcom/epicgames/kairos/utils/DebouncedLimiter;->getGraphqlUrl(Lcom/epicgames/kairos/utils/Environment;)Ljava/lang/String;
+
+and replace with:
+invoke-static {}, Lcom/razer/moonwave/Partyhub;->getGraphqlUrl()Ljava/lang/String;
