@@ -22,13 +22,13 @@ jobs:
 
       - name: Build release target
         run: cargo build --release --target aarch64-apple-ios
-        working-directory: main/iOS
+        working-directory: iOS
 
       - name: Upload built library
         uses: actions/upload-artifact@v4
         with:
           name: ios-release-artifact
           path: |
-            main/iOS/target/aarch64-apple-ios/release/*.dylib
-            main/iOS/target/aarch64-apple-ios/release/*.a
+            iOS/target/aarch64-apple-ios/release/*.dylib
+            iOS/target/aarch64-apple-ios/release/*.a
           if-no-files-found: warn
