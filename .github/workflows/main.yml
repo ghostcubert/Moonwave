@@ -1,0 +1,34 @@
+name: Build iOS Target
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    name: Build for iOS (aarch64-apple-ios)
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios
+
+      - name: Build release target
+        run: cargo build --release --target aarch64-apple-ios
+        working-directory: main/iOS
+
+      - name: Upload built library
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-release-artifact
+          path: |
+            main/iOS/target/aarch64-apple-ios/release/*.dylib
+            main/iOS/target/aarch64-apple-ios/release/*.a
+          if-no-files-found: warn
